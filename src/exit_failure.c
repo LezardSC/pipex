@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_failure.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezard <lezard@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: jrenault <jrenault@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 05:30:27 by jrenault          #+#    #+#             */
-/*   Updated: 2023/06/12 18:43:02 by lezard           ###   ########lyon.fr   */
+/*   Updated: 2023/06/13 14:18:36 by jrenault         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	exit_failure_access(t_pipex *param, char **args, pid_t *pids, int error)
 
 void	command_not_found(t_pipex *param, pid_t *pids)
 {
-	perror("Command not found");
+	ft_putstr_fd("Pipex: Command not found.\n", 2);
 	free(pids);
 	wait_and_clean(param, NULL, 0);
 	exit(EXIT_FAILURE);

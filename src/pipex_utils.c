@@ -6,7 +6,7 @@
 /*   By: jrenault <jrenault@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 23:12:38 by lezard            #+#    #+#             */
-/*   Updated: 2023/06/12 05:40:30 by jrenault         ###   ########lyon.fr   */
+/*   Updated: 2023/06/13 11:50:49 by jrenault         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ void	initialize_pipes(t_pipex *param)
 		exit_failure_pipes(param, i);
 }
 
-void	find_all_path(t_pipex *param)
+void	find_all_path(t_pipex *param, int i)
 {
-	int	i;
-
 	param->path = NULL;
 	i = -1;
 	while (param->env[++i])
@@ -86,18 +84,27 @@ void	find_all_path(t_pipex *param)
 			return ;
 		}
 	}
+	ft_printf("Pipex: No path has been found.\n");
+}
+
+static void	close_pipes(t_pipex *param)
+{
+	int	i;
+
+	i = 0;
+	while (i < param->nb_cmds - 1)
+	{
+		close(param->pipes[i][0]);
+		close(param->pipes[i][1]);
+		i++;
+	}
 }
 
 void	wait_and_clean(t_pipex *param, pid_t *pids, int close_fd)
 {
 	int	i;
 
-	i = -1;
-	while (++i < param->nb_cmds - 1)
-	{
-		close(param->pipes[i][0]);
-		close(param->pipes[i][1]);
-	}
+	close_pipes(param);
 	i = 0;
 	while (pids != NULL && i < param->nb_cmds)
 	{

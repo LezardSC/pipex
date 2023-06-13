@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezard <lezard@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: jrenault <jrenault@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 13:09:27 by jrenault          #+#    #+#             */
-/*   Updated: 2023/06/12 18:53:17 by lezard           ###   ########lyon.fr   */
+/*   Updated: 2023/06/13 11:45:25 by jrenault         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		execute_command(t_pipex *param, char **args, pid_t *pids);
 
 void		initialize_cmds(t_pipex *param, char **argv);
 void		initialize_pipes(t_pipex *param);
-void		find_all_path(t_pipex *param);
+void		find_all_path(t_pipex *param, int i);
 void		wait_and_clean(t_pipex *param, pid_t *pids, int close_fd);
 
 void		execute_dot_slash(t_pipex *param, char **args, pid_t *pids);

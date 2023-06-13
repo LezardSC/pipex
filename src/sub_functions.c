@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sub_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezard <lezard@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: jrenault <jrenault@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:44:12 by lezard            #+#    #+#             */
-/*   Updated: 2023/06/12 18:52:00 by lezard           ###   ########lyon.fr   */
+/*   Updated: 2023/06/13 14:32:24 by jrenault         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void	pipex_process(t_pipex *param, pid_t *pids, int i)
 				| O_CREAT | O_TRUNC, 0644);
 		if (param->outfile_fd == -1)
 		{
-			wait_and_clean(param, NULL, 0);
+			perror(param->outfile);
 			close(param->infile_fd);
 			free(pids);
-			perror(param->outfile);
+			wait_and_clean(param, NULL, 0);
 			exit(EXIT_FAILURE);
 		}
 	}
