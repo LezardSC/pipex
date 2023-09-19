@@ -6,7 +6,7 @@
 #    By: jrenault <jrenault@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 08:46:55 by jrenault          #+#    #+#              #
-#    Updated: 2023/06/25 21:27:45 by jrenault         ###   ########lyon.fr    #
+#    Updated: 2023/07/11 17:32:28 by jrenault         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ DIR_BONUS				= src_bonus/
 SRC_BONUS			 	= 	main_bonus.c \
 							pipex_bonus.c \
 							pipex_utils_bonus.c \
-							exit_failure_bonus.c \
 							sub_functions_bonus.c \
 
 OBJECTS			    	= ${addprefix ${BUILD_DIR},${SRC:.c=.o}}
